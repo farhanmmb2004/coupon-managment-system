@@ -11,6 +11,6 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 //routes
-import userRouter from './routes/user.routes.js'
-app.use("/api/v1/users",userRouter);
+import couponRouter from './routes/coupon.routes.js'
+app.use("/api/v1/coupons",couponRouter);
 export {app};
