@@ -2,9 +2,9 @@ import axios from 'axios';
 
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL: 'https://coupon-managment-system.onrender.com/api/v1',
   withCredentials: true, // Important for cookies to be sent
-  timeout: 10000, // 10 seconds timeout
+  timeout: 50000, // 50 seconds timeout
 });
 
 // Service for coupon operations
