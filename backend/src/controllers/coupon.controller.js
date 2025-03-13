@@ -22,12 +22,12 @@ const getCoupon = async (req, res) => {
     
     let nextCouponIndex = 0;
     if (lastClaim) {
-      // Find the index of the last claimed coupon
+      // find the index of the last claimcoupon
       const lastClaimedCouponIndex = activeCoupons.findIndex(
         coupon => coupon._id.toString() === lastClaim.couponId.toString()
       );
       
-      // If found, take the next one (round-robin)
+      // If found than take the next one (round-robin)
       if (lastClaimedCouponIndex !== -1) {
         nextCouponIndex = (lastClaimedCouponIndex + 1) % activeCoupons.length;
       }
@@ -64,6 +64,7 @@ const getCoupon = async (req, res) => {
 };
 
 // Admin function to add new coupons
+//currently not in used 
 const addCoupon = async (req, res) => {
   try {
     const { code, description, discountAmount, expiryDate } = req.body;

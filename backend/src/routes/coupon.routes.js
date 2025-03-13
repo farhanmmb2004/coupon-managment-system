@@ -5,13 +5,13 @@ import sessionHandler from '../middleware/sessionHandler.js';
 
 const router = express.Router();
 
-// Apply session middleware to all routes
+// apply sesson middleware to all routes
 router.use(sessionHandler);
 
-// Route to get a coupon (apply rate limiting)
+// Route to get a coupon (apply rate limitings)
 router.route('/claim').get(rateLimiter, getCoupon);
 
-// Admin route to add new coupons (would normally have auth middleware)
+// Admin route to add new coupens (would normally have auth middleware would implement later)
 router.route('/add').post(addCoupon);
 
 export default router;
