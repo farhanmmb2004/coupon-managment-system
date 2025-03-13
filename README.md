@@ -60,7 +60,7 @@ guest-authentication/
 
 4. Start the backend server:
    ```
-   npm start
+   npm run dev
    ```
 
 ### Frontend Setup
@@ -77,7 +77,7 @@ guest-authentication/
 
 3. Start the React development server:
    ```
-   npm start
+   npm run dev
    ```
 
 4. The React app will open in your browser at `http://localhost:3000`
@@ -102,24 +102,3 @@ This application implements multiple layers of abuse prevention:
 
 - `GET /api/v1/coupons/claim` - Claim a coupon
 - `POST /api/v1/coupons/add` - Add new coupons (admin only)
-
-## Deployment
-
-To deploy to a production environment:
-
-1. Build the React frontend:
-   ```
-   cd frontend
-   npm run build
-   ```
-
-2. Set up a production MongoDB instance
-
-3. Update the `.env` file with production settings:
-   ```
-   PORT=8000
-   MONGODB_URI=your_production_mongodb_uri
-   NODE_ENV=production
-   ```
-
-4. Deploy the backend and the built frontend to your hosting provider
