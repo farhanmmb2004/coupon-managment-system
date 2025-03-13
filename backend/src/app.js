@@ -3,9 +3,10 @@ import cookieParser from "cookie-parser";
 import cors from 'cors';
 const app=express();
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://coupon-claim.netlify.app'],
+    origin: ['http://localhost:5173', 'https://coupon-claim.netlify.app'],
     credentials: true
 }));
+app.set('trust proxy', true);
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://coupon-claim.netlify.app");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");

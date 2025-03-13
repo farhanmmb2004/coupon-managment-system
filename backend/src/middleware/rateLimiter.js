@@ -3,14 +3,15 @@ import Claim from '../models/claim.model.js';
 const COOLDOWN_PERIOD = 60 * 60 * 1000; // 1 hour in milliseconds
 
 const rateLimiter = async (req, res, next) => {
-  const ipAddress = req.ip;
+  const ipAddress = req.headers['x-forwarded-for']?.split(',')[0] || req.ip;
+  // console.log(ipAddress);
   const sessionId = req.cookies.sessionId || 'anonymous';
-
+  // console.log(sessionId);
   try {
     // Find the most recent claim by this IP or session
     const recentClaim = await Claim.findOne({
       $or: [
-        { ipAddress: ipAddress },
+        // { ipAddress: ipAddress },
         { sessionId: sessionId }
       ]
     }).sort({ claimedAt: -1 });
