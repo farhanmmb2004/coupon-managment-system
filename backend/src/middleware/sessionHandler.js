@@ -10,7 +10,7 @@ const sessionHandler = (req, res, next) => {
     res.cookie('sessionId', sessionId, {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       httpOnly: true,
-      secure: 'false'
+      secure: true
     });
     
     req.sessionId = sessionId;
