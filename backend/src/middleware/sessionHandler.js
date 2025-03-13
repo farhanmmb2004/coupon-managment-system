@@ -9,7 +9,7 @@ const sessionHandler = (req, res, next) => {
     // Set cookie that expires in 30 days
     res.cookie('sessionId', sessionId, {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      httpOnly: true,
+      sameSite: "None",
       secure: true
     });
     
